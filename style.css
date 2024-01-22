@@ -1,0 +1,1064 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+}
+
+h1{
+    font-size: 50px;
+    line-height: 64px;
+    color: #222;
+}
+
+h2{
+    font-size: 46px;
+    line-height: 54px;
+    color: #222;
+}
+
+h4{
+    font-size: 20px;
+    color: #222;
+}
+
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+
+p{
+    font-size: 16px;
+    color: #465b52;
+    margin: 15px 0 20px 0 ;
+}
+
+.section-p1{
+    padding: 110px 80px; 
+}
+
+.section-m1{
+    margin: 40px 0;
+}
+
+button.normal{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+
+}
+button.white{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 11px 18px;
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid #fff;
+    outline: none;
+    transition: 0.2s;
+
+}
+body{
+    width: 100%;
+}
+
+
+#header{
+    display:flex ;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: rgb(214, 112, 72);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    
+}
+/* BAKILACAK YER BURASI 
+#header .logo {
+   
+} */
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none; /*yazının yanındaki nokta */
+    padding: 0 20px;  /*alt üst boşluk:0 sağ sol boşluk:20 */
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;  /* alt çizgi*/
+    font-size: 16px;  /*yazının büyüklüğü */
+    font-weight: 600; /* yazı kalınlık */
+    color:rgb(2, 15, 17);
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: rgb(246, 246, 246);
+}
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content:"";
+    width: 30%;
+    height: 2px;
+    background: rgb(255, 255, 255);
+    position:absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#mobile{
+    display: none;
+    align-items: center;
+}
+#close{
+    display: none;
+}
+
+
+#hero {
+    position: relative;
+    padding: 90px 0 0 0;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    text-align: center;
+    z-index: 2;
+}
+#hero .content h2,h1 {
+    color: rgb(214, 112, 72);
+}
+.slides{
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) opx 5px 15px;
+}
+.slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    opacity: 0;
+    inset: 0;
+    animation: slide-show 12s infinite;
+}
+
+.slide-2{
+    animation-delay: 4s;
+}
+
+.slide-3{
+    animation-delay: 8s ;
+
+}
+
+
+.slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+@keyframes slide-show{
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    20%,
+    30%{
+        opacity: 1;
+        scale: 1.09;
+    }
+    50%{
+        opacity: 0;
+    }
+
+}
+
+
+.fe-box img{
+    width: 160px;
+    height: 180px;
+}
+ 
+
+
+#product-1 {
+    text-align: center;  /*bütün içeriği ortalar*/
+}
+#product-1 .prod-container{
+    display: flex; /* kutuları yan yana alır*/
+    justify-content: space-between; /*aralarını açar kutuların*/
+    padding-top: 20px;
+    flex-wrap: wrap; /* ürünleri yanyana değil kutular sığana kadar yan sonra aşağıya alır*/
+}
+
+#product-1 .prod {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;  /* fare gelince fare işareti değişir */
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+#product-1 .prod:hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+#product-1 .prod img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+#product-1 .prod .des{
+    text-align: start;
+    padding: 10px 0;
+}
+#product-1 .prod .des span{
+    color: rgb(219, 160, 88);
+    font-size: 12px;
+}
+#product-1 .prod .des h5{
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+#product-1 .prod .des i{
+    font-size: 12px;
+    color: rgb(243, 181, 25);
+}
+#product-1 .prod .des h4{
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #088178;
+
+}
+#product-1 .prod .cart{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius:50px ;
+    background-color: #e8f6ea;
+    font-weight: 500;
+    color: #088178;
+    border: 1px solid #cce7d0;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}
+#product-1 .plate img{
+    width: 100%;
+    height: 250px;
+
+}
+
+#banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(img/banner.png);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+
+}
+#banner h4{
+    color: #fff;
+    font-size: 16px;
+}
+#banner h2{
+    color: #fff;
+    font-size: 30px;
+    padding: 10px 0;
+}
+#banner h2 span{
+    color: crimson;
+
+}
+
+#banner button:hover{
+    background-color:crimson;
+    color: #fff;
+}
+
+#sm-banner{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+ 
+#sm-banner .banner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    background-image: url(img/banner-1.png);
+    min-width: 580px;
+    height:50vh;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+}
+#sm-banner .banner-box2{
+    background-image: url(img/banner-2.png);
+    
+}
+
+
+#sm-banner h4{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+}
+#sm-banner h2{
+    color: rgb(0, 0, 0);
+    font-size: 28px;
+    font-weight: 800;
+}
+#sm-banner span{
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    padding:15px ;
+}
+
+#sm-banner .banner-box:hover button{
+    background: peru;
+    border: 1px solid peru;
+
+}
+
+#banner3{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 80px;
+}
+
+#banner3 .banner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url(img/banner3-1.png);
+    min-width: 30%;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#banner3 .banner-box2{
+    background-image: url(img/banner3-2.png);
+}
+#banner3 .banner-box3{
+    background-image: url(img/banner3-3.png);
+}
+
+
+#banner3 h2{
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    font-size: 22px;
+}
+
+#banner3 h3{
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+    font-size: 15px;
+}
+
+#banner3 .banner-box2 h2{
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    font-size: 22px;
+}
+#banner3 .banner-box2 h3{
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    font-size: 22px;
+}
+
+#newsletter{
+    display: flex;  /*İçerdiği elemanlar (flex items), varsayılan olarak yatay bir çizgide (bir satırda) hizalanır.*/
+    justify-content: space-between;  /*Bu özellik, içerdiği elemanları yatay eksende düzenlerken, elemanlar arasında boşluk bırakır ve ilk elemanı sol kenara, son elemanı ise sağ kenara hizalar.*/
+    flex-wrap: wrap;  /*içerdiği elemanlar sığmazsa bir sonraki satıra atlar.*/
+    align-items: center;   /*ortalanmasını sağlar*/
+    background-color: #8ca2c2;
+    padding: 50px;
+}
+#newsletter .newstext h4{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+}
+#newsletter .newstext p{
+    color: rgb(234, 218, 218);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#newsletter .form{
+    display: flex;
+    width: 40%;
+}
+
+#newsletter input{
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none; /* tıkladığımızda kenarında oluşan renk yok olur */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+#newsletter button{
+    background-color:peru;
+    color: #fff;
+    white-space: nowrap; /*bir metnin otomatik satır sonu eklemesini (wrap) engelleyerek, metni aynı satırda tutmayı sağlar. Yani, bu özellik kullanıldığında, metin içindeki boşluklar veya diğer satır sonu karakterleri nedeniyle metin otomatik olarak bir sonraki satıra geçmez.*/
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+ }
+
+ footer .logo{
+    margin-bottom: 30px;
+ }
+
+ footer h4{
+    font-size: 14px;
+    padding-bottom: 20px;
+ }
+
+ footer p{
+    font-size: 13px;
+    margin: 0 0 8px 0;
+ }
+
+ footer a{
+    font-size: 13px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: #222;
+ }
+
+ footer .follow{
+    margin-top: 20px;
+ }
+
+ footer .follow i{
+    color: #465b52;
+    padding-right: 4px;
+    cursor: pointer;
+
+ }
+
+footer .install .row p{
+    border: 3px solid #088178;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: inline-block;
+    margin: 0
+}
+
+footer .install p{
+    margin: 10px 0 15px 0;
+}
+
+footer .follow i:hover,
+footer a:hover{
+    color:#088178 ;
+}
+
+ footer .copyright{
+    width: 100%;
+    text-align: center;
+ }
+
+
+ #page-header {
+    background-image: url(img/shop/shop.html-yazılı-sayfa.png);
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+ }
+ 
+  #pagination{
+    text-align: center;
+  }
+
+  #pagination a{
+    text-decoration: none; /*altını çizme özelliği*/
+    background-color:#088178 ;
+    padding: 15px 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+}
+#pagination a i{
+    font-size: 16px;
+    font-weight: 600; /*kalınlık*/
+}
+
+#spesific-pro{
+    display: flex;
+    margin-top: 20px;
+}
+#spesific-pro .single-prod-image{
+    width: 40%;
+    margin-right: 50px;
+
+}
+#spesific-pro .single-prod-image #MainImg{
+    border: 1px solid #088178 ;
+}
+
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+
+}
+.small-img-post{
+    flex-basis: 33%;
+cursor: pointer;
+}
+
+#spesific-pro .single-prod-details{
+    width: 50%;
+    padding-top: 80px;
+}
+#spesific-pro .single-prod-details h4{
+    padding: 40px 0 20px 0;
+}
+#spesific-pro .single-prod-details h2{
+font-size: 16px;
+}
+
+#spesific-pro .single-prod-details input{
+    width: 50px;
+    height: 40px;
+    padding-left: 12px;
+    font-size: 16px;
+    margin-right: 12px;
+}
+#spesific-pro .single-prod-details input:focus{
+    outline: none;
+}
+
+
+#spesific-pro .single-prod-details button{
+    background-color:#088178 ;
+    color: #fff;
+}
+
+#spesific-pro .single-prod-details span{
+    line-height: 30px;
+}
+.about{
+    margin-bottom: 150px;
+}
+
+#header-card {
+    width: 100%; /* İstenilen genişliği ayarlayabilirsiniz */
+    height: 35vh; /* İstenilen yüksekliği ayarlayabilirsiniz */
+    background-size: contain; /* Resmi orantılı olarak küçült */
+    background-position: center;
+    clip-path: inset(25% 45% 0); /* Üst kısmını %30 kırp */
+    display: flex;
+    justify-content: center; /* Dikeyde ortala */
+    align-items: center; /* Yatayda ortala */
+}
+
+#container-cart {
+    display:flex;
+    margin: -110px 80px;
+}
+.carts{
+    width: 70%;
+    background-color: #fff;
+    border: 1px solid #000;
+    margin-bottom: 60px;
+
+
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 30px 0;
+}
+.top h2{
+    font-size:large;
+}
+.tops{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 30px 0;
+}
+.tops h2{
+    font-size:large;
+}
+table{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+.table-head{
+    background-color:#f9af23;
+    height: 45px;
+    color: #000000;
+}
+.head-img{
+    text-align: center;
+    padding-left: 7px;
+}
+.summary{
+    background-color: #fff;
+    border: 1px solid #000;
+    width: 30%;
+    margin-left: 20px;
+    margin-bottom: 60px;
+}
+
+.details{
+    margin: 10px 0;
+    padding: 0 10px;
+    align-items: center;
+    background-color: #f9af23;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.details h2{
+    font-size: large;
+    color: #000;
+    
+    
+}
+
+.summary input{
+    border: 1px solid black;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    margin: 15px 0;
+    padding: 7px;
+
+}
+#secenekKutucugu{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    margin: 15px 0;
+    padding: 7px;
+    font-size: medium;
+}
+
+.summary button{
+    border: none;
+    background-color: #f9af23;
+    color: rgb(0, 0, 0);
+    padding: 8px 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.checkout {
+    width: 100%;
+}
+button:hover, .checkout:hover{
+    background-color: #088178;
+}
+
+.shipping-sale h2{
+    font-size: large;
+}
+
+
+
+
+  #carts{
+    margin: 35px auto;
+    margin-top: 50px;
+  }
+
+ #container-cart .ion-icon1{
+    font-size: 15px;
+    color: #088178;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+
+ }
+ .price{
+    border-bottom: 2px solid rgb(206, 228, 236);
+ }
+ .title{
+    border-bottom: 2px solid rgb(206, 228, 236);
+
+ }
+.incart{
+    border-bottom: 2px solid rgb(206, 228, 236);
+
+}
+.ion-icon{
+    border-bottom: 2px solid rgb(206, 228, 236);
+
+}
+.headimg{
+    border-bottom: 2px solid rgb(206, 228, 236);
+}
+.tr{
+    height: 50px;
+}
+.total{
+    border-bottom: 2px solid rgb(206, 228, 236);
+
+}
+
+/* ABOUT-US */
+
+.heading{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 40px auto;
+}
+
+.heading h1{
+    font-size: 50px;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.heading h1::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    display: block;
+    margin: 0 auto;
+    background-color: rgb(214, 112, 72);
+}
+
+.heading p{
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap ;  /*eğer alan yetmiyorsa öğelerin bir sonraki satıra geçip geçmemesini kontrol eder. */
+}
+
+.about-image{
+    flex: 1;
+    margin-right: 40px;
+    overflow: hidden;
+
+}
+
+.about-image img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.5s ease;
+}
+
+.about-image:hover img{
+    transform: scale(1.2);
+}
+
+.about-content{
+    flex: 1;
+}
+
+.about-content h2{
+    font-size: 23px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.about-content p{
+    font-size: 18px;
+    line-height: 1.5;  
+    color: #666;
+}
+
+.about-content .read-more{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(214, 112, 72) ;
+    color: #fff;
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: 0.3s ease;
+
+}
+
+.about-content .read-more:hover{
+    background-color: #088178;
+}
+
+@media screen and (max-width:768px){
+    .heading{
+        padding: 0px 20px;
+    }
+
+    .heading h1{
+        font-size: 36px;
+    }
+
+    .heading p{
+        font-size: 17px;
+        margin-bottom: 0px;
+    }
+
+    .container{
+        padding: 0px;
+    }
+
+    .about{
+        padding: 20px;
+        flex-direction: column; /*içeriği alt alta alır*/
+    }
+    .about-image{
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    .about-content p{
+        padding: 0px;
+        font-size: 16px; 
+    }
+    .about-content .read-more{
+        font-size: 16px;
+    }
+
+}
+
+/* CONTACT.HTML */
+
+.contact{
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(img/contacts.png) ;
+    background-size: cover;
+
+}
+
+.contact .contents{
+    max-width: 800px;
+    text-align: center;
+}
+
+.contact .contents h2{
+    font-weight: 480;
+    font-size: 34px;
+    color: #000;
+
+}
+.contact .contents p{
+    font-weight: 280;
+    color: #000;
+}
+
+.containers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.containers .contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.containers .contactInfo .boxs {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+.containers .contactInfo .boxs .icon {
+    min-width: 60px;
+    height: 60px;
+    background:rgb(214, 112, 72);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+}
+.containers .contactInfo .boxs .texts{
+    display: flex;
+    margin-left: 20px;
+    font-size: 20px;
+    color: #000;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+.containers .contactInfo .boxs .texts h3{
+    font-weight: 500;
+    color: rgb(214, 112, 72);
+}
+
+.contactForms{
+    width: 40%;
+    padding: 40px;
+    height:55vh ;
+    background:rgb(224, 217, 208);
+
+}
+.contactForms h2{
+    font-size: 30px;
+    color:rgb(214, 112, 72);
+    font-weight: 500;
+    margin:10px  20px;
+    padding-bottom: 20px;
+
+}
+
+.contactForms textarea{
+    position: relative;
+    width: 70%;
+    padding: 5px 0;
+    font-size: 10px;
+    margin: 3px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+}
+.contactForms .inputBox{
+    position: relative;
+    width: 100%;
+    margin:25px  20px;
+}
+.contactForms .inputBox input,
+.contactForms .inputBox textarea
+{
+    width: 60%;
+    padding: 12px 0;
+    font-size: 10px;
+    margin: 3px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+}
+
+.contactForms .inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 11px 9px;
+    font-size: 10px;
+    margin: 3px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+    text-align: center;
+    justify-content: center;
+    font-size: 12px;
+    
+
+}
+
+.contactForms .inputBox input:focus ~ span,
+.contactForms .inputBox input:valid ~ span,
+.contactForms .inputBox textarea:focus ~ span,
+.contactForms .inputBox textarea:valid ~ span {
+    color: rgb(214, 112, 72);
+    font-size: 12px;
+    transform: translateY(-30px);
+
+}
+.contactForms .inputBox input[type="submit"] {
+    width: 100px;
+    background: rgb(214, 112, 72) ;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 17px;
+
+}
+
