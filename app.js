@@ -1,12 +1,12 @@
 function secimiGoster() {
-    // Seçilen seçeneği bul
+    // Find the selected option
     var secenekKutucugu = document.getElementById('secenekKutucugu');
     var secilenSecenek = secenekKutucugu.options[secenekKutucugu.selectedIndex].text;
 
-    // Seçeneği göster
+    // Show option
     document.getElementById('secimSonuc').innerText = 'Seçiminiz: ' + secilenSecenek;
 }
-//Ürün Bilgileri ve Sepet Nesnesi Oluşturma:
+//Product Information and Cart Object Creation:
 
  let cart = document.querySelectorAll('.cart');
  let containerCart = document.getElementById("root");
@@ -101,16 +101,16 @@ function secimiGoster() {
     name: 'Şık Yemek Tabağı',
     tag: 'syt7',
     price: 99.90,
-    inCart:0 //sepette kaç adet olduğunu gösterir 
+    inCart:0 //Shows how many items are in the basket 
   },
   {
     name: 'Şık Yemek Tabağı',
     tag: 'syt8',
     price: 99.90,
-    inCart:0 //sepette kaç adet olduğunu gösterir 
+    inCart:0 
   }
   ]
-//Olay Dinleyicileri Eklenme:
+//Adding Event Listeners:
 
  for(let i=0; i< cart.length;  i++) {
   cart[i].addEventListener('click', () => {
@@ -121,22 +121,23 @@ function secimiGoster() {
 
   })
  }
-//Sayfa Yüklendiğinde Sepet Bilgilerini Gösterme Fonksiyonu:
 
-  function onloadCartNumbers(){   //bu fonksiyon, sayfanın yüklendiğinde çağrılır.
+//Function of Showing Cart Information When the Page is Loaded:
+
+  function onloadCartNumbers(){   //This function is called when the page loads
     let productNumbers = localStorage.getItem('cartNumbers');
 
     if(productNumbers) {
       document.querySelector('.position-relative span').textContent = productNumbers;
     }
   }
-//Sepete Ürün Ekleme Fonksiyonu:
+//Add Product to Cart Function:
 
  function cartNumbers(product){
   
-  let productNumbers = localStorage.getItem('cartNumbers');  //Bu değer, kullanıcının sepetteki ürün sayısını temsil eder.
+  let productNumbers = localStorage.getItem('cartNumbers');  //This value represents the number of items in the user's cart.
 
-  productNumbers = parseInt(productNumbers); //stringi numbera dönüştürür.
+  productNumbers = parseInt(productNumbers); //Converts string to number
 
   if (productNumbers) {
     localStorage.setItem('cartNumbers', productNumbers + 1);
@@ -151,44 +152,44 @@ function secimiGoster() {
 
 
 
-// Fonksiyon, sepete ürün eklemek için kullanılır( localstorageye yükler-müşteri görmez)
+// The function is used to add products to the cart (uploads to localstorage - customer does not see it)
  function setItems(product) {
     
-  // localStorage'dan 'productsIncart' değerini al
+  // Get 'productsIncart' value from localStorage
 let cartItems = localStorage.getItem('productsIncart');
 
   
-    // Alınan değeri JavaScript nesnesine çevir (JSON'dan)
-    cartItems = JSON.parse(cartItems); //bu değer bir string olduğu için, JSON.parse ile bu string'i JavaScript nesnesine dönüştürür. Böylece, cartItems artık bir JavaScript nesnesi olur ve üzerinde nesne manipülasyonları (örneğin, spread operatörü kullanma) yapabilirsiniz.
+    // Convert received value to JavaScript object (from JSON)
+    cartItems = JSON.parse(cartItems); //Since this value is a string, it converts this string into a JavaScript object with JSON.parse. So cartItems is now a JavaScript object and you can perform object manipulations on it (for example, using the spread operator)
   
-  // Eğer sepette ürünler varsa
+  // If there are products in the cart
     if(cartItems != null) {
 
-          // Eğer eklenen ürün daha önce eklenmemişse
-    if(cartItems[product.tag] == undefined) {   //JavaScript'te nesne özelliklerine erişim yaparken genellikle iki farklı notasyon kullanılabilir: köşeli parantez [] ve nokta .. ve [product.tag] ifadesinde köşeli parantez kullanılmasının sebebi, product nesnesinin içindeki tag isimli bir özelliğe dinamik bir şekilde erişmektir. Yani, product nesnesinin içinde bir özellik adı olarak değeri tag olan bir özelliğe ulaşmak istiyoruz.
+          // If the added product has not been added before
+    if(cartItems[product.tag] == undefined) {   //When accessing object properties in JavaScript, two different notations can generally be used: square brackets [] and dot .. The reason for using square brackets in the [product.tag] expression is to dynamically access a property called tag inside the product object. That is, we want to access a property whose value is tag as a property name inside the product object.
                 
-      // Sepeti güncelle, yeni ürünü ekleyerek
+      // Update cart, adding new product
       cartItems = {
-        ...cartItems, //...cartItems: Bu ifade, cartItems adlı nesnenin tüm özelliklerini alır ve yeni bir nesne oluşturur. Yani, mevcut cartItems'ı kopyalar.
-        [product.tag]: product   // Yeni ürünü ekle
+        ...cartItems, //...cartItems: This statement takes all the properties of the object named cartItems and creates a new object. That is, it copies existing cartItems.
+        [product.tag]: product   // Add new product
       }
     }
-    // Sepetteki belirli ürünün 'incart' (sepete eklenme sayısı) özelliğini bir artır
+    // Increase the 'incart' (number of times added to cart) of the specific product in the cart by one
     cartItems[product.tag].inCart += 1;
   }else {
-    // Eğer sepette hiç ürün yoksa
-    // Yeni ürünü sepete ekle
-    product.inCart =1;   // Ürünün sepette kaç kez olduğunu belirten özellik
+    // If there is no product in the cart
+    // Add new product to cart
+    product.inCart =1;   // Feature indicating how many times the product is in the cart
     cartItems = {
       [product.tag]: product
     }
   }
 
-  // Sepetin güncellenmiş halini tekrar localStorage'a kaydet
+  // Save the updated version of the cart back to localStorage
    localStorage.setItem("productsIncart", JSON.stringify(cartItems));
  }
 
- //Bu JavaScript fonksiyonu, bir alışveriş sepetinin toplam maliyetini hesaplamak için kullanılır.
+ //This JavaScript function is used to calculate the total cost of a shopping cart.
   function totalCost(product){
      let cartCost = localStorage.getItem('totalCost');
 
@@ -202,7 +203,7 @@ let cartItems = localStorage.getItem('productsIncart');
   }
  
 
-  //ürünleri arayüz sepetine ekler 
+  //adds products to interface cart 
 
   function displayCart() {
 
@@ -280,7 +281,7 @@ detail.innerHTML += `
 
 
   }
- //Sayfa Yüklendiğinde Sepet Bilgilerini Gösterme Fonksiyonunun Çağrılması:
+ //Calling the Function to Show Cart Information When the Page is Loaded:
  displayCart();
  details();
  totals()
@@ -291,7 +292,7 @@ detail.innerHTML += `
  
 
 
- //burada hem arayüzden hemde local storageden ürün silme yapıcaz 
+ //Here we will delete the product from both the interface and local storage
 function eventListeners(){
  containerCart.addEventListener("click" , deleteCart);
 }
@@ -349,7 +350,3 @@ function deleteCart(e) {
     deleteUrunFromStorage(e.target.parentElement.parentElement.querySelector('.title').textContent);
   }
 }
-
-
-
-
